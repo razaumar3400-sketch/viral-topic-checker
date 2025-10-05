@@ -1,18 +1,23 @@
+import streamlit as st
+import requests
+from datetime import datetime, timedelta
+
 # YouTube API Key
-API_KEY = "Enter your API Key here"
+API_KEY = "AIzaSyAtwNTRniwnlpry8Ai8hS_dgljbCbTGtOY"
 YOUTUBE_SEARCH_URL = "https://www.googleapis.com/youtube/v3/search"
 YOUTUBE_VIDEO_URL = "https://www.googleapis.com/youtube/v3/videos"
 YOUTUBE_CHANNEL_URL = "https://www.googleapis.com/youtube/v3/channels"
 
 # Streamlit App Title
-st.title ("YouTube Viral Topics Tool")
+st.title("YouTube Viral Topics Tool")
 
 # Input Fields
 days = st.number_input("Enter Days to Search (1-30):", min_value=1, max_value=30, value=5)
 
 # List of broader keywords
 keywords = [
- "Twisted Family Revenge,reddit,reddit story, reddit family drama sisters,reddit family drama stories, family drama stories, dramatic confessions, forgiveness stories, resilience and justice"
+  "Twisted Family Revenge,reddit,reddit story, reddit family drama sisters,reddit family drama stories, family drama stories, dramatic confessions, forgiveness stories, resilience and justice"
+
 ]
 
 # Fetch Data Button
@@ -96,7 +101,7 @@ if st.button("Fetch Data"):
         if all_results:
             st.success(f"Found {len(all_results)} results across all keywords!")
             for result in all_results:
-                st.markdown(
+                st. markdown(
                     f"**Title:** {result['Title']}  \n"
                     f"**Description:** {result['Description']}  \n"
                     f"**URL:** [Watch Video]({result['URL']})  \n"
